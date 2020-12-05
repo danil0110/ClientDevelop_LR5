@@ -1,3 +1,5 @@
+import * as cart from '../cart.js';
+
 const view = (db, productId) => {
     let result = ``;
     result += `
@@ -14,7 +16,7 @@ const view = (db, productId) => {
                         <h4 class="text-center text-dark font-weight-bold mr-2">
                             ${db.products[productId - 1].price} грн.
                         </h4>
-                        <div id="${db.products[productId - 1].id}" class="btn btn-warning text-dark font-weight-bold ml-2" product="${db.products[productId - 1].id}" onclick="addToCart();">
+                        <div id="${db.products[productId - 1].id}" class="btn btn-warning add-to-cart text-dark font-weight-bold ml-2" product="${db.products[productId - 1].id}">
                             В кошик
                         </div>
                      </div>
@@ -67,3 +69,8 @@ const view = (db, productId) => {
 }
 
 export default view;
+export const postRender = () => {
+    document.querySelector('.add-to-cart').addEventListener('click', () => {
+        cart.addToCart();
+    });
+}

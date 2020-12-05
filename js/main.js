@@ -18,7 +18,10 @@ window.onload = () => {
                 .then(viewModule => {
                     view = viewModule.default;
                     renderPage(categoryId, productId, offerId);
-            })
+                    if (viewModule.postRender) {
+                        viewModule.postRender();
+                    }
+            });
         });
 
         window.scrollTo({
@@ -34,6 +37,9 @@ window.onhashchange = () => {
         .then(viewModule => {
             view = viewModule.default;
             renderPage(categoryId, productId, offerId);
+            if (viewModule.postRender) {
+                viewModule.postRender();
+            }
     });
 
     window.scrollTo({

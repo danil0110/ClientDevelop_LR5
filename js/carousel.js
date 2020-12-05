@@ -1,6 +1,6 @@
 let currentItem = 0;
 
-function nextOffer() {
+export const nextOffer = () => {
     let leftArrow = document.getElementById('carousel-prev');
     let rightArrow = document.getElementById('carousel-next');
     let carouselItems = document.querySelectorAll('.carousel-item');
@@ -17,7 +17,7 @@ function nextOffer() {
     carouselDots[currentItem].classList.toggle('selected');
 }
 
-function prevOffer() {
+export const prevOffer = () => {
     let leftArrow = document.getElementById('carousel-prev');
     let rightArrow = document.getElementById('carousel-next');
     let carouselItems = document.querySelectorAll('.carousel-item');
@@ -36,4 +36,4 @@ function prevOffer() {
 
 window.addEventListener('hashchange', () => {
     currentItem = 0;
-})
+});

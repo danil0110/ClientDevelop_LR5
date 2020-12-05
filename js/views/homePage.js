@@ -1,3 +1,5 @@
+import * as carousel from '../carousel.js';
+
 const view = (db) => {
     let result = ``;
     result += `
@@ -30,7 +32,7 @@ const view = (db) => {
     result += `
                     </div>
                     <div class="carousel-control d-flex justify-content-between align-items-center pl-5 pr-5">
-                    <div id="carousel-prev" onclick="prevOffer();">
+                    <div id="carousel-prev">
                         <i class="fas fa-arrow-left"></i>
                     </div>
                     <div class="carousel-dots">
@@ -49,7 +51,7 @@ const view = (db) => {
     }
     result += `
                     </div>
-                    <div id="carousel-next" onclick="nextOffer();">
+                    <div id="carousel-next">
                         <i class="fas fa-arrow-right"></i>
                     </div>
                 </div>
@@ -102,3 +104,11 @@ const view = (db) => {
 }
 
 export default view;
+export const postRender = () => {
+    document.getElementById('carousel-prev').addEventListener('click', () => {
+        carousel.prevOffer();
+    });
+    document.getElementById('carousel-next').addEventListener('click', () => {
+        carousel.nextOffer();
+    });
+}

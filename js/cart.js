@@ -1,6 +1,6 @@
 let cart = new Array;
 
-function addToCart() {
+export const addToCart = () => {
     let product = {
         id: window.location.hash.split('/')[1],
         count: 1
