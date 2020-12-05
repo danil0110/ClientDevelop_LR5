@@ -1,0 +1,23 @@
+{
+  "name": "clientdevelop_lr5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "./node_modules/.bin/webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danil0110/ClientDevelop_LR5.git"
+  },
+  "author": "danil0110",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danil0110/ClientDevelop_LR5/issues"
+  },
+  "homepage": "https://github.com/danil0110/ClientDevelop_LR5#readme",
+  "devDependencies": {
+    "webpack": "^5.10.0",
+    "webpack-cli": "^4.2.0"
+  }
+}
