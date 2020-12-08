@@ -8,7 +8,7 @@ const view = (db) => {
         <div class="carousel rounded shadow overflow-hidden">
     `;
     db.offers.map(offer => {
-        if (offer.id == 1) {
+        if (offer.id === 1) {
             result += `
             <div class="carousel-item hidden show d-block position-relative">
             <h3 class="position-absolute text-white font-weight-bold">${offer.slogan}</h3>
@@ -38,7 +38,7 @@ const view = (db) => {
                     <div class="carousel-dots">
     `;
     for (let i = 0; i < db.offers.length; i++) {
-        if (i == 0) {
+        if (i === 0) {
             result += `
             <i class="fas fa-circle selected"></i>
             `
@@ -62,8 +62,8 @@ const view = (db) => {
     `
     for (let i = 0; i < db.popularProducts.length; i++) {
         for (let j = 0; j < db.products.length; j++) {
-            if (db.products[j].id == db.popularProducts[i]) {
-                if (i != 2) {
+            if (db.products[j].id === db.popularProducts[i]) {
+                if (i !== 2) {
                     result += `
                     <div class="col-lg-4 col-md-6">
                         <div class="card pt-2 mt-5 ml-auto mr-auto" style="width: 18rem;">

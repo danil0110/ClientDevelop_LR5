@@ -1,6 +1,6 @@
 let currentItem = 0;
 
-export const nextOffer = (currentItem) => {
+export const nextOffer = () => {
     let leftArrow = document.getElementById('carousel-prev');
     let rightArrow = document.getElementById('carousel-next');
     let carouselItems = document.querySelectorAll('.carousel-item');
@@ -17,7 +17,7 @@ export const nextOffer = (currentItem) => {
     carouselDots[currentItem].classList.toggle('selected');
 }
 
-export const prevOffer = (currentItem) => {
+export const prevOffer = () => {
     let leftArrow = document.getElementById('carousel-prev');
     let rightArrow = document.getElementById('carousel-next');
     let carouselItems = document.querySelectorAll('.carousel-item');
