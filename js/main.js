@@ -48,7 +48,7 @@ window.onhashchange = () => {
     });
 }
 
-function renderPage(categoryId, productId, offerId) {
+export function renderPage(categoryId, productId, offerId) {
     if (categoryId != 0) {
         templateEngine.render(view(db, categoryId));
     } else if (productId != 0) {
@@ -60,7 +60,7 @@ function renderPage(categoryId, productId, offerId) {
     }
 }
 
-function displayLoadingSpinner() {
+export function displayLoadingSpinner() {
     document.querySelector('main').innerHTML = `
     <div class="mt-4 pt-4">
                 <div class="loading-spinner"></div>

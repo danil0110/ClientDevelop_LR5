@@ -129,12 +129,11 @@ document.querySelector('main').addEventListener('click', event1 => {
     }
 });
 
-function generateOrderId() {
+export function generateOrderId() {
     return Math.floor(Math.random() * Math.floor(100000));
 }
 
 function clearCart() {
-    let cart = JSON.parse(localStorage.getItem('cart'));
     cart = [];
     localStorage.setItem('cart', JSON.stringify(cart));
     displayQuantityOnCartButton();
