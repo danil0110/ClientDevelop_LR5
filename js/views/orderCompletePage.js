@@ -1,5 +1,5 @@
 const view = db => {
-    let result = ``;
+    let result = '';
     let cart = JSON.parse(localStorage.getItem('cart'));
     
     result += `
@@ -49,6 +49,6 @@ const view = db => {
     }
 
     return result;
-}
+};
 
 export default view;

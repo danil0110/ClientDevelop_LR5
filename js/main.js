@@ -1,5 +1,6 @@
 import TemplateEngine from './templateEngine.js';
 import Router from './router.js';
+import '../css/style.css';
 
 let router = new Router();
 let templateEngine = new TemplateEngine();
@@ -9,7 +10,7 @@ let view;
 
 window.onload = () => {
     displayLoadingSpinner();
-    fetch("https://my-json-server.typicode.com/danil0110/McDonaldsDB/db")
+    fetch('https://my-json-server.typicode.com/danil0110/McDonaldsDB/db')
         .then(response => response.json())
         .then(data => {
             db = data;
@@ -21,16 +22,18 @@ window.onload = () => {
                     if (viewModule.postRender) {
                         viewModule.postRender();
                     }
-            });
+                });
         });
 
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-}
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+};
 
-window.onhashchange = () => {
+window.onhashchange = onHashChange;
+
+export function onHashChange() {
     displayLoadingSpinner();
     let { viewName, categoryId, productId, offerId } = router.getCurrentPath(db);
     import(`./views/${viewName}.js`)
@@ -40,11 +43,11 @@ window.onhashchange = () => {
             if (viewModule.postRender) {
                 viewModule.postRender();
             }
-    });
+        });
 
     window.scrollTo({
         top: 0,
-        behavior: "smooth"
+        behavior: 'smooth'
     });
 }
 

@@ -1,7 +1,7 @@
 import * as carousel from '../carousel.js';
 
 const view = (db) => {
-    let result = ``;
+    let result = '';
     result += `
     <div class="mt-4 pt-4">
         <h2 class="text-center text-dark font-weight-bold mb-5">Спеціальні пропозиції</h2>
@@ -16,7 +16,7 @@ const view = (db) => {
                 <img style="width: 100%" src="${offer.img}" draggable="false" alt="${offer.name}" />
             </a>
             </div>
-            `
+            `;
         }
         else {
             result += `
@@ -26,9 +26,9 @@ const view = (db) => {
                 <img style="width: 100%" src="${offer.img}" draggable="false" alt="${offer.name}" />
             </a>
             </div>
-            `
+            `;
         }
-    })
+    });
     result += `
                     </div>
                     <div class="carousel-control d-flex justify-content-between align-items-center pl-5 pr-5">
@@ -41,12 +41,12 @@ const view = (db) => {
         if (i === 0) {
             result += `
             <i class="fas fa-circle selected"></i>
-            `
+            `;
         }
         else {
             result += `
             <i class="fas fa-circle"></i>
-            `
+            `;
         }
     }
     result += `
@@ -59,7 +59,7 @@ const view = (db) => {
             <div class="popular-products">
                 <h2 class="text-center text-dark font-weight-bold">Популярні продукти</h2>
                 <div class="row">
-    `
+    `;
     for (let i = 0; i < db.popularProducts.length; i++) {
         for (let j = 0; j < db.products.length; j++) {
             if (db.products[j].id === db.popularProducts[i]) {
@@ -75,7 +75,7 @@ const view = (db) => {
                             </a>
                         </div>
                     </div>
-                `
+                `;
                 }
                 else {
                     result += `
@@ -89,7 +89,7 @@ const view = (db) => {
                             </a>
                         </div>
                     </div>
-                    `
+                    `;
                 }
             }
             
@@ -99,9 +99,9 @@ const view = (db) => {
     result += `
                 </div>
             </div>
-    `
+    `;
     return result;
-}
+};
 
 export default view;
 export const postRender = () => {
@@ -111,4 +111,4 @@ export const postRender = () => {
     document.getElementById('carousel-next').addEventListener('click', () => {
         carousel.nextOffer();
     });
-}
+};

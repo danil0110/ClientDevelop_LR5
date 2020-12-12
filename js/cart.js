@@ -27,7 +27,7 @@ export const addToCart = () => {
 
     localStorage.setItem('cart', JSON.stringify(cart));
     displayQuantityOnCartButton();
-}
+};
 
 function calculateQuantity() {
     let result = 0;
@@ -92,10 +92,10 @@ document.querySelector('main').addEventListener('click', event1 => {
     if (event1.target.id == 'submitButton') {
         window.scrollTo({
             top: 0,
-            behavior: "smooth"
+            behavior: 'smooth'
         });
         let forms = document.getElementsByClassName('needs-validation');
-        let validation = Array.prototype.filter.call(forms, form => {
+        Array.prototype.filter.call(forms, form => {
             form.addEventListener('submit', event2 => {
                 event2.preventDefault();
                 event2.stopPropagation();
@@ -109,7 +109,7 @@ document.querySelector('main').addEventListener('click', event1 => {
                         window.location.hash = '';
                         return;
                     }
-                    fetch("https://my-json-server.typicode.com/danil0110/McDonaldsDB/products", { method: 'POST' })
+                    fetch('https://my-json-server.typicode.com/danil0110/McDonaldsDB/products', { method: 'POST' })
                         .then(response => {
                             if (response.ok) {
                                 if (calculateQuantity() == 0) {
@@ -131,12 +131,6 @@ document.querySelector('main').addEventListener('click', event1 => {
 
 export function generateOrderId() {
     return Math.floor(Math.random() * Math.floor(100000));
-}
-
-function clearCart() {
-    cart = [];
-    localStorage.setItem('cart', JSON.stringify(cart));
-    displayQuantityOnCartButton();
 }
 
 window.addEventListener('load', () => {

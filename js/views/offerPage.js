@@ -8,6 +8,6 @@ const view = (db, offerId) => {
             </div>
     `;
     return result;
-}
+};
 
 export default view;

@@ -1,7 +1,7 @@
 import * as cart from '../cart.js';
 
 const view = (db, productId) => {
-    let result = ``;
+    let result = '';
     result += `
             <div class="row mt-4">
                 <div class="col-lg-8">
@@ -66,11 +66,11 @@ const view = (db, productId) => {
             </div>
     `;
     return result;
-}
+};
 
 export default view;
 export const postRender = () => {
     document.querySelector('.add-to-cart').addEventListener('click', () => {
         cart.addToCart();
     });
-}
+};

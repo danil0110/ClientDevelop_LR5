@@ -1,5 +1,5 @@
 const view = (db, categoryId) => {
-    let result = ``;
+    let result = '';
     result += `
             <div class="mt-4 pt-4">
                 <h2 class="text-center text-dark font-weight-bold">Категорія "${db.categories[categoryId - 1].name}"</h2>
@@ -26,6 +26,6 @@ const view = (db, categoryId) => {
             </div>
     `;
     return result;
-}
+};
 
 export default view;

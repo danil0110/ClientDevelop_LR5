@@ -1,8 +1,6 @@
 let currentItem = 0;
 
 export const nextOffer = () => {
-    let leftArrow = document.getElementById('carousel-prev');
-    let rightArrow = document.getElementById('carousel-next');
     let carouselItems = document.querySelectorAll('.carousel-item');
     let carouselDots = document.querySelectorAll('.fa-circle');
 
@@ -15,11 +13,9 @@ export const nextOffer = () => {
     carouselItems[currentItem].classList.add('show');
     carouselItems[currentItem].classList.remove('hide');
     carouselDots[currentItem].classList.toggle('selected');
-}
+};
 
 export const prevOffer = () => {
-    let leftArrow = document.getElementById('carousel-prev');
-    let rightArrow = document.getElementById('carousel-next');
     let carouselItems = document.querySelectorAll('.carousel-item');
     let carouselDots = document.querySelectorAll('.fa-circle');
 
@@ -32,7 +28,7 @@ export const prevOffer = () => {
     carouselItems[currentItem].classList.add('show');
     carouselItems[currentItem].classList.remove('hide');
     carouselDots[currentItem].classList.toggle('selected');
-}
+};
 
 window.addEventListener('hashchange', () => {
     currentItem = 0;

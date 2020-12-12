@@ -1,5 +1,5 @@
 const view = (db) => {
-    let result = ``;
+    let result = '';
     result += `
             <div class="mt-4 pt-4">
                 <h2 class="text-center text-dark font-weight-bold">Категорії</h2>
@@ -24,6 +24,6 @@ const view = (db) => {
             </div>
     `;
     return result;
-}
+};
 
 export default view;
