@@ -1,4 +1,4 @@
-let cart = new Array;
+let cart = [];
 
 export const addToCart = () => {
     let product = {
@@ -6,14 +6,14 @@ export const addToCart = () => {
         count: 1
     };
 
-    if (JSON.parse(localStorage.getItem('cart')) === null || JSON.parse(localStorage.getItem('cart')).length == 0) {
-        cart = new Array;
+    if (JSON.parse(localStorage.getItem('cart')) === null || JSON.parse(localStorage.getItem('cart')).length === 0) {
+        cart = [];
         cart.push(product);
     } else {
         cart = JSON.parse(localStorage.getItem('cart'));
         let isFound = false;
         for (let i = 0; i < cart.length; i++) {
-            if (product.id == cart[i].id) {
+            if (product.id === cart[i].id) {
                 cart[i].count++;
                 isFound = true;
                 break;
@@ -31,7 +31,7 @@ export const addToCart = () => {
 
 function calculateQuantity() {
     let result = 0;
-    if (JSON.parse(localStorage.getItem('cart').length != 0)) {
+    if (JSON.parse(localStorage.getItem('cart').length !== 0)) {
         JSON.parse(localStorage.getItem('cart')).map(product => {
             result += product.count;
         });
@@ -43,7 +43,7 @@ function displayQuantityOnCartButton() {
     let quantity = calculateQuantity();
     let span = document.getElementById('cartQuantity');
     if (span == null) {
-        if (quantity != 0) {
+        if (quantity !== 0) {
             let cartButton = document.getElementById('cart-button');
             span = document.createElement('span');
             span.id = 'cartQuantity';
@@ -51,7 +51,7 @@ function displayQuantityOnCartButton() {
             cartButton.appendChild(span);
         }
     } else {
-        if (quantity == 0) {
+        if (quantity === 0) {
             span.remove();
         } else {
             span.innerHTML = quantity;
@@ -69,9 +69,9 @@ document.querySelector('main').addEventListener('click', event => {
         cart = JSON.parse(localStorage.getItem('cart'));
 
         for (let i = 0; i < cart.length; i++) {
-            if (cart[i].id == productId) {
+            if (cart[i].id === productId) {
                 cart[i].count--;
-                if (cart[i].count == 0) {
+                if (cart[i].count === 0) {
                     card.remove();
                     cart.splice(i, 1);
                 } else {
@@ -89,7 +89,7 @@ document.querySelector('main').addEventListener('click', event => {
 });
 
 document.querySelector('main').addEventListener('click', event1 => {
-    if (event1.target.id == 'submitButton') {
+    if (event1.target.id === 'submitButton') {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
@@ -105,14 +105,14 @@ document.querySelector('main').addEventListener('click', event1 => {
                                 <div class="loading-spinner"></div>
                     </div>
                     `;
-                    if (calculateQuantity() == 0) {
+                    if (calculateQuantity() === 0) {
                         window.location.hash = '';
                         return;
                     }
                     fetch('https://my-json-server.typicode.com/danil0110/McDonaldsDB/products', { method: 'POST' })
                         .then(response => {
                             if (response.ok) {
-                                if (calculateQuantity() == 0) {
+                                if (calculateQuantity() === 0) {
                                     return;
                                 }
                                 let orderId = generateOrderId();
