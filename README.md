@@ -1,4 +1,4 @@
-# McDonalds App w/ WebPack, Babel, Jest, ESLint
+# McDonalds App w/ Webpack, Babel, Jest, ESLint
 ### Unit Tests
 ![image](https://user-images.githubusercontent.com/38916225/102195470-4f03df80-3ec7-11eb-95f7-20257f8c806f.png)
 
